@@ -25,20 +25,23 @@ let counter = 0 ;
 
 // associamo una variabile ai bottoni
 const buttonRight = document.getElementById('right-button');
-const buttonLeft = document.getElementById('left-button');
+const buttonLeft = document.getElementById('left-button');  
 
-buttonRight.addEventListener('click', function(){
+let autoplayInterval = setInterval(nextSlide, 1000);
+
+/* 
+    FUNZIONI
+*/
+
+function nextSlide() {
     if (counter < imgArray.length -1){
         counter += 1;
         console.log(counter);
         document.querySelector('.canvas').innerHTML = imgArray[counter];
+    } else {
+        counter = 0;
+        console.log(counter);
+        document.querySelector('.canvas').innerHTML = imgArray[counter];
     }
-})
+}
 
-buttonLeft.addEventListener('click', function(){
-        if ((counter !== imgArray.length) && (counter !== 0)){
-            counter -= 1
-            console.log(counter)
-            document.querySelector('.canvas').innerHTML = (imgArray[counter])
-        }
-}) 
