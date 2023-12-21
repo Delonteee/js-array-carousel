@@ -29,6 +29,18 @@ const buttonLeft = document.getElementById('left-button');
 
 let autoplayInterval = setInterval(nextSlide, 1000);
 
+const stopAutoplayButton = document.getElementById('autoplay');
+
+stopAutoplayButton.addEventListener('click', function() {
+    if (autoplayInterval == null) {
+        autoplayInterval = setInterval(nextSlide, 1000)
+    } else {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+    }
+})
+
+
 /* 
     FUNZIONI
 */
